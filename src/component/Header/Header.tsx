@@ -1,11 +1,7 @@
 import React, { FC, PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-
-export interface HeaderProps {
-  route: string;
-  routeru: string;
-}
+import { HeaderProps } from "./Header.Props";
 
 const Header = ({ title }: HeaderProps): JSX.Element => {
   //   console.log(title);
