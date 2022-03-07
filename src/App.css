@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
+:root {
+  --gray-ligth: rgba(235, 235, 245, 0.6);
+  --gray: rgba(118, 118, 128, 0.24);
+  --font-primary: Gotham Pro;
+  --white: #fff;
+}

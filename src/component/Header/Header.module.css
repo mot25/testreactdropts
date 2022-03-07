@@ -1,0 +1,16 @@
+.header_link {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+
+  text-align: center;
+  letter-spacing: -0.408px;
+  text-decoration-line: underline;
+
+  color: var(--white);
+}
+.header_link + .header_link {
+    margin-left: 38px;
+}

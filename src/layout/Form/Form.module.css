@@ -1,0 +1,41 @@
+form {
+  color: var(--gray-color);
+}
+
+.form_item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: var(--gray-ligth);
+  margin-bottom: 5px;
+  padding-left: 12px;
+  margin-top: 10px;
+}
+
+.input {
+  background: var(--gray);
+  border-radius: 10px;
+  max-width: 343px;
+  height: 36px;
+  border: none;
+  outline: none;
+}
+
+.input::placeholder {
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  color: var(--gray-ligth);
+  padding: 6.5px 0 7.5px 12px;
+}
