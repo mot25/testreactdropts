@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styles from "./Form.module.css";
-type Props = {};
+import cn from "classnames";
+import Button from "../../component/Button/Button";
 
 const Form: FC = () => {
   return (
@@ -51,12 +52,14 @@ const Form: FC = () => {
           />
         </div>
       </form>
-      <button>Сохранить</button>
-      <div className={styles.form_item}>
+      <Button>Сохранить</Button>
+      <div className={cn(styles.form_item, styles.response)}>
         <label className={styles.label} htmlFor="response">
           Response
         </label>
-        <input className={styles.input} id="response" type="textarea" />
+        <div
+          className={cn(styles.form_item, styles.input_response, styles.input)}
+        ></div>
       </div>
     </div>
   );

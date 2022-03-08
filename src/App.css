@@ -1,9 +1,19 @@
 * {
   box-sizing: border-box;
 }
-
 body {
+  background-color: #1f2223;
+}
+
+.App {
   background-color: #000;
+  border-radius: 28px;
+  position: absolute;
+  top: 43px;
+  left: 43px;
+  right: 43px;
+  bottom: 43px;
+  padding: 0 51px;
 }
 
 :root {

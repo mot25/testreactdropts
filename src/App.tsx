@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./component/Header/Header";
 import Form from "./layout/Form/Form";
 import { HeaderProps } from "./component/Header/Header.Props";
+import Color from "./layout/Color/Color";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         />
         <Routes>
           <Route path="/form" element={<Form />} />
-          {/* <Route path="/Color" element={<Color />} /> */}
+          <Route path="/Color" element={<Color />} />
           <Route path="*" element={<Form />} />
         </Routes>
       </BrowserRouter>
