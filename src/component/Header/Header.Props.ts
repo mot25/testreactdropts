@@ -1,4 +1,7 @@
+export interface PropsItemsHeader {
+  route: string;
+  routeru: string;
+}
 export interface HeaderProps {
-    route: string;
-    routeru: string;
-  }
+  title: PropsItemsHeader[];
+}
