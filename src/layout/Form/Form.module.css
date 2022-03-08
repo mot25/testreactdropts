@@ -27,6 +27,8 @@ form {
   height: 36px;
   border: none;
   outline: none;
+  color: var(--white);
+  padding-left: 12px;
 }
 
 .input::placeholder {
@@ -37,5 +39,5 @@ form {
   line-height: 22px;
   letter-spacing: -0.408px;
   color: var(--gray-ligth);
-  padding: 6.5px 0 7.5px 12px;
+  padding: 6.5px 0 7.5px 0;
 }

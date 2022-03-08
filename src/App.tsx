@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/form" element={<Form />} />
           {/* <Route path="/Color" element={<Color />} /> */}
-          {/* <Route path="/*" element={<Form />} /> */}
+          <Route path="*" element={<Form />} />
         </Routes>
       </BrowserRouter>
     </div>
