@@ -9,8 +9,8 @@ export const App = ({ color, onChangeColor }) => {
   return (
     <div>
       <SketchPicker
-        color={ color }
-        onChangeComplete={ onChangeColor }
+        color={color}
+        onChangeComplete={onChangeColor}
       />
     </div>
   )
@@ -25,4 +25,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
- 

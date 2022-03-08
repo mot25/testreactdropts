@@ -1,12 +1,9 @@
 import { createContext, FC, PropsWithChildren, useReducer } from "react";
-interface IContextPicker {
-  color: string;
-}
-interface IContextPickerProdider {
-  children: React.ReactNode;
-}
+import { IContextPicker, IContextPickerProdider } from "./ColorPicker.Props";
+
 const initState: IContextPicker = {
   color: "#F5A623",
+  CHANGE_COLOR: () => {},
 };
 
 export const ContextColorPicker = createContext<IContextPicker>(initState);
@@ -21,13 +18,13 @@ const reducer = (state: any, action: any) => {
   }
 };
 
-export const ContextColorPicker = ({
+export const ContextColorPickerProvider = ({
   children,
 }: PropsWithChildren<IContextPickerProdider>) => {
   const [value, dispath] = useReducer(reducer, initState);
 
-  value.CHANGE_COLOR = (c: string) => {
-    dispath({ type: "CHANGE_COLOR", hex: c });
+  value.CHANGE_COLOR = (color: string) => {
+    dispath({ type: "CHANGE_COLOR", hex: color });
   };
 
   return (
