@@ -1,24 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  ContextColorPicker,
-  ContextColorPickerProvider,
-} from "./ColorPicker.Context";
-import { BlockPicker } from "react-color";
-import { IColorEvent } from "./ColorPicker.Props";
-
+import Button from "../Button/Button";
+import styles from "./Color.module.css";
 const ColorPicker = () => {
-  const { color, CHANGE_COLOR } = useContext(ContextColorPicker);
-  // const [color, setColor] = useState();
-  useEffect(() => console.log(color), [color]);
-  const handleColor = (color: IColorEvent) => {
-    console.log(color.hex);
-    CHANGE_COLOR(color.hex);
-  };
   return (
     <div>
-      <ContextColorPickerProvider>
-        <BlockPicker color={color} onChangeComplete={handleColor} />
-      </ContextColorPickerProvider>
+      <div className={styles.block_container}>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+        <div className={styles.block_red}></div>
+      </div>
+      <Button className={styles.button_color}>Добавить цвет</Button>
     </div>
   );
 };
