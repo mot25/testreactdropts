@@ -8,13 +8,18 @@
   margin-bottom: 254px;
 }
 
-.block_red {
+.block_item {
   width: 54px;
   height: 54px;
   border-radius: 5px;
-  background-color: red;
+  border: 1px solid #fff;
+  background-color: #000;
 }
 
 .button_color {
-  margin-bottom: 208px;
+  
+}
+
+.btn_wrapper {
+  display: flex;
 }
