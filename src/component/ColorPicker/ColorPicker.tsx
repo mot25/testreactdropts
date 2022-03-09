@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { BlockPicker } from "react-color";
 import { useDispatch } from "react-redux";
-import { ColorAdd } from "../../store/action-creator/color";
+import { ColorAdd, hideColorPicker } from "../../store/action-creator/color";
 import { IColorWithMap, IEventColorPicker } from "../../store/types";
 import Button from "../Button/Button";
 import { useTypedSelector } from "../hook/useTypedSelecror";
 import styles from "./Color.module.css";
+import delete_icon from "./img/delete_block.svg";
+
 const ColorPicker = () => {
   const [valueColor, setvalueColor] = useState<string>("#fff");
   console.log(valueColor);
@@ -24,11 +26,13 @@ const ColorPicker = () => {
   };
 
   const handleClickBtn = () => {
+    if (colors.length >= 8) {
+      dispatch(hideColorPicker());
+      return alert("Please");
+    }
     dispatch(ColorAdd(valueColor));
   };
-  if (colors.length >=9) {
-    alert("Please");
-  }
+
   return (
     <div>
       <div className={styles.block_container}>
@@ -39,7 +43,11 @@ const ColorPicker = () => {
                 key={color.id}
                 className={styles.block_item}
                 style={{ backgroundColor: color.color }}
-              ></div>
+              >
+                <span className={styles.block_delete}>
+                  <img src={delete_icon} />
+                </span>
+              </div>
             );
           })}
       </div>

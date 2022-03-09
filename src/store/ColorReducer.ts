@@ -19,6 +19,8 @@ export const colorReducer = (
       };
     case ColorActionType.REMOVE_COLOR:
       return { ...state };
+    case ColorActionType.DELETE_COLORPICKER:
+      return { ...state, isColorPicker: false };
 
     default:
       return state;

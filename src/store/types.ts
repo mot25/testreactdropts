@@ -6,7 +6,8 @@ export interface IColorChange {
 
 export enum ColorActionType {
   ADD_COLOR = "ADD_COLOR",
-  REMOVE_COLOR = "REMOVE_COLOR"
+  REMOVE_COLOR = "REMOVE_COLOR",
+  DELETE_COLORPICKER = "DELETE_COLORPICKER"
 }
 
 export interface IColorActionType {

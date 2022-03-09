@@ -12,14 +12,19 @@
   width: 54px;
   height: 54px;
   border-radius: 5px;
-  border: 1px solid #fff;
   background-color: #000;
+  position: relative;
 }
 
 .button_color {
-  
 }
 
 .btn_wrapper {
   display: flex;
+}
+
+.block_delete {
+  position: absolute;
+  top: -7px;
+  right: -7px;
 }

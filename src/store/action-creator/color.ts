@@ -10,3 +10,8 @@ export const ColorAdd = (color: string) => {
 export const ColorRemove = () => {
   return async (dispatch: Dispatch) => {};
 };
+export const hideColorPicker = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({ type: ColorActionType.DELETE_COLORPICKER });
+  };
+};
