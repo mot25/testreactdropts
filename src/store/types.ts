@@ -1,13 +1,13 @@
 export interface IColorChange {
   colors: IColorWithMap[] | any;
-  changeColor: string | null;
   isColorPicker: boolean;
 }
 
 export enum ColorActionType {
   ADD_COLOR = "ADD_COLOR",
   REMOVE_COLOR = "REMOVE_COLOR",
-  DELETE_COLORPICKER = "DELETE_COLORPICKER"
+  DELETE_COLORPICKER = "DELETE_COLORPICKER",
+  SHOW_COLORPICKER = "SHOW_COLORPICKER"
 }
 
 export interface IColorActionType {

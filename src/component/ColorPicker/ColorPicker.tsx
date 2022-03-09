@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { BlockPicker } from "react-color";
 import { useDispatch } from "react-redux";
-import { ColorAdd, hideColorPicker } from "../../store/action-creator/color";
+import {
+  ColorAdd,
+  ColorRemove,
+  hideColorPicker,
+  showColorPicker
+} from "../../store/action-creator/color";
 import { IColorWithMap, IEventColorPicker } from "../../store/types";
 import Button from "../Button/Button";
 import { useTypedSelector } from "../hook/useTypedSelecror";
@@ -9,15 +14,14 @@ import styles from "./Color.module.css";
 import delete_icon from "./img/delete_block.svg";
 
 const ColorPicker = () => {
-  const [valueColor, setvalueColor] = useState<string>("#fff");
+  const [valueColor, setvalueColor] = useState<string>(
+    `#${Math.ceil(Math.random() * 9)}5${Math.ceil(
+      Math.random() * 9
+    )}54${Math.ceil(Math.random() * 9)}`
+  );
   console.log(valueColor);
 
-  const { colors, changeColor, isColorPicker } = useTypedSelector(
-    (state) => state.color
-  );
-  console.log("colors", colors);
-  console.log("changeColor", changeColor);
-  console.log("isColorPicker", isColorPicker);
+  const { colors, isColorPicker } = useTypedSelector((state) => state.color);
 
   const dispatch = useDispatch();
 
@@ -28,9 +32,16 @@ const ColorPicker = () => {
   const handleClickBtn = () => {
     if (colors.length >= 8) {
       dispatch(hideColorPicker());
-      return alert("Please");
+    } else {
+      dispatch(ColorAdd(valueColor));
     }
-    dispatch(ColorAdd(valueColor));
+  };
+
+  const deleteBlock = (id: number) => {
+    if (colors.length <= 8) {
+      dispatch(showColorPicker());
+    }
+    dispatch(ColorRemove(id));
   };
 
   return (
@@ -45,7 +56,10 @@ const ColorPicker = () => {
                 style={{ backgroundColor: color.color }}
               >
                 <span className={styles.block_delete}>
-                  <img src={delete_icon} />
+                  <img
+                    onClick={() => deleteBlock(color.id)}
+                    src={delete_icon}
+                  />
                 </span>
               </div>
             );

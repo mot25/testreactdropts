@@ -2,7 +2,6 @@ import { ColorActionType, IColorActionType, IColorChange } from "./types";
 
 const initColorState: IColorChange = {
   colors: [],
-  changeColor: null,
   isColorPicker: true
 };
 
@@ -14,13 +13,17 @@ export const colorReducer = (
     case ColorActionType.ADD_COLOR:
       return {
         ...state,
-        colors: [...state.colors, { id: Date.now(), color: action.payload }],
-        changeColor: action.payload
+        colors: [...state.colors, { id: Date.now(), color: action.payload }]
       };
     case ColorActionType.REMOVE_COLOR:
-      return { ...state };
+      return {
+        ...state,
+        colors: state.colors.filter((c: any) => c.id !== action.payload)
+      };
     case ColorActionType.DELETE_COLORPICKER:
       return { ...state, isColorPicker: false };
+    case ColorActionType.SHOW_COLORPICKER:
+      return { ...state, isColorPicker: true };
 
     default:
       return state;
