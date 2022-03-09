@@ -1,9 +1,9 @@
 import { Dispatch } from "redux";
 import { ColorActionType } from "../types";
 
-export const ColorAdd = () => {
+export const ColorAdd = (color: string) => {
   return async (dispatch: Dispatch) => {
-    dispatch({ type: ColorActionType.CHANGE_COLOR });
+    dispatch({ type: ColorActionType.ADD_COLOR, payload: color });
   };
 };
 

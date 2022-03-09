@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BlockPicker } from "react-color";
 import { useDispatch } from "react-redux";
 import { ColorAdd } from "../../store/action-creator/color";
+import { IColorWithMap, IEventColorPicker } from "../../store/types";
 import Button from "../Button/Button";
 import { useTypedSelector } from "../hook/useTypedSelecror";
 import styles from "./Color.module.css";
@@ -18,25 +19,26 @@ const ColorPicker = () => {
 
   const dispatch = useDispatch();
 
-  const handleColor = (e: any) => {
-    // setvalueColor(e.target.value);
+  const handleColor = (e: IEventColorPicker) => {
     setvalueColor(e.hex);
   };
 
   const handleClickBtn = () => {
-    dispatch(ColorAdd());
+    dispatch(ColorAdd(valueColor));
   };
-
+  if (colors.length >=9) {
+    alert("Please");
+  }
   return (
     <div>
       <div className={styles.block_container}>
-        {/* <div className={styles.block_item}></div> */}
         {colors &&
-          colors.map((color: string): JSX.Element => {
+          colors.map((color: IColorWithMap): JSX.Element => {
             return (
               <div
+                key={color.id}
                 className={styles.block_item}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: color.color }}
               ></div>
             );
           })}
