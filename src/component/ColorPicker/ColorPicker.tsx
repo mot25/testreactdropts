@@ -14,6 +14,7 @@ import { useTypedSelector } from "../hook/useTypedSelecror";
 import styles from "./Color.module.css";
 import delete_icon from "./img/delete_block.svg";
 import "react-toastify/dist/ReactToastify.css";
+import { defaultColors } from "./defaultColors";
 const ColorPicker = () => {
   const [valueColor, setvalueColor] = useState<string>(
     `#${Math.ceil(Math.random() * 9)}5${Math.ceil(
@@ -56,6 +57,12 @@ const ColorPicker = () => {
     dispatch(ColorRemove(id));
   };
 
+  window.addEventListener("click", (e: any) => {
+    // console.dir(e.target);
+    const target = e.target;
+    console.log(target.closest(".BlockPicker"));
+  });
+
   return (
     <div>
       <div className={styles.block_container}>
@@ -82,7 +89,14 @@ const ColorPicker = () => {
           Добавить цвет
         </Button>
         {isColorPicker &&
-          <BlockPicker color={valueColor} onChangeComplete={handleColor} />}
+          <span className="BlockPicker">
+            <BlockPicker
+              className={styles.BlockPicker}
+              colors={defaultColors}
+              color={valueColor}
+              onChangeComplete={handleColor}
+            />
+          </span>}
       </div>
       <ToastContainer
         position="bottom-center"
