@@ -9,7 +9,7 @@ const Header = ({ title }: HeaderProps): JSX.Element => {
     <div className={styles.header}>
       {title.map((link: PropsItemsHeader) => {
         return (
-          <Link className={styles.header_link} to={link.route}>
+          <Link key={link.route} className={styles.header_link} to={link.route}>
             {link.routeru}
           </Link>
         );

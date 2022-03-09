@@ -2,16 +2,23 @@ import { createContext, FC, PropsWithChildren, useReducer } from "react";
 import { IContextPicker, IContextPickerProdider } from "./ColorPicker.Props";
 
 const initState: IContextPicker = {
-  color: "#F5A623",
-  CHANGE_COLOR: () => {},
+  color: "#000",
+  CHANGE_COLOR: ({ color }: { color: string }) => {
+    console.log("con", color);
+
+    dispath({
+      type: "CHANGE_COLOR",
+      color,
+    });
+  },
 };
 
 export const ContextColorPicker = createContext<IContextPicker>(initState);
 
-const reducer = (state: any, action: any) => {
+const reducer = (state: IContextPicker, action: any) => {
   switch (action.type) {
     case "CHANGE_COLOR":
-      return { ...state, color: action.hex };
+      return { ...state, color: action.color };
 
     default:
       return state;
@@ -23,9 +30,14 @@ export const ContextColorPickerProvider = ({
 }: PropsWithChildren<IContextPickerProdider>) => {
   const [value, dispath] = useReducer(reducer, initState);
 
-  value.CHANGE_COLOR = (color: string) => {
-    dispath({ type: "CHANGE_COLOR", hex: color });
-  };
+  // value.CHANGE_COLOR = ({ color }: { color: string }) => {
+  //   console.log("con", color);
+
+  //   dispath({
+  //     type: "CHANGE_COLOR",
+  //     color,
+  //   });
+  // };
 
   return (
     <ContextColorPicker.Provider value={value}>
@@ -33,40 +45,3 @@ export const ContextColorPickerProvider = ({
     </ContextColorPicker.Provider>
   );
 };
-// -----------------
-// import { createContext, PropsWithChildren, ReactNode, useState } from "react";
-// import { MenuItem } from "../interfaces/menu.interface";
-// import { TopLevelCategory } from "../interfaces/page.interface";
-
-// export interface IAppContext {
-//   menu: MenuItem[];
-//   firstCategory: TopLevelCategory;
-//   setMenu?: (newMenu: MenuItem[]) => void;
-// }
-
-// export const AppContext = createContext<IAppContext>({
-//   menu: [],
-//   firstCategory: TopLevelCategory.Courses,
-// });
-
-// export const AppContextProvider = ({
-//   children,
-//   menu,
-//   firstCategory,
-// }: PropsWithChildren<IAppContext>): JSX.Element => {
-//   const [menuState, setMenuState] = useState<MenuItem[]>(menu);
-//   const setMenu = (newMenu: MenuItem[]) => {
-//     setMenuState(newMenu);
-//   };
-//   return (
-//     <AppContext.Provider
-//       value={{
-//         menu: menuState,
-//         firstCategory,
-//         setMenu,
-//       }}
-//     >
-//       {children}
-//     </AppContext.Provider>
-//   );
-// };

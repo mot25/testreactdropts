@@ -5,3 +5,6 @@ export interface IContextPicker {
 export interface IContextPickerProdider {
   children: React.ReactNode;
 }
+export interface IColorEvent {
+  hex: string;
+}
