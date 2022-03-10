@@ -3,24 +3,14 @@ import styles from "./Form.module.css";
 import cn from "classnames";
 import Button from "../../component/Button/Button";
 import uploadFiel from "./img/file_udload.svg"
+import { IData, IResponse } from "./Form.Types";
 
 
-interface IData {
-  action: string;
-  id: number;
-  image: string;
-  contact: string[];
-}
 
-interface IResponse {
-  msg: string;
-  status: string;
-}
 
 const Form: FC = () => {
   const action = "send_data";
   const id = 1;
-
   const [image, setImage] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string>("");

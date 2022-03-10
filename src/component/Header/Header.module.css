@@ -20,3 +20,8 @@
   margin-left: 38px;
 }
 
+.mainPage {
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--white);
+  /* text-decoration-line: underline; */
+}
