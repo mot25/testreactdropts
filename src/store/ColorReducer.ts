@@ -2,7 +2,7 @@ import { ColorActionType, IColorActionType, IColorChange } from "./types";
 
 const initColorState: IColorChange = {
   colors: [],
-  isColorPicker: true
+  isColorPicker: false
 };
 
 export const colorReducer = (

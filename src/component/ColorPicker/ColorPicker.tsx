@@ -19,28 +19,28 @@ const ColorPicker = () => {
       Math.random() * 9
     )}54${Math.ceil(Math.random() * 9)}`
   );
-  console.log(valueColor);
 
   const { colors, isColorPicker } = useTypedSelector((state) => state.color);
 
   const dispatch = useDispatch();
 
+  // ColorAdd
+  // ColorRemove
+  // hideColorPicker
+  // showColorPicker
+
   const handleColor = (e: IEventColorPicker) => {
     setvalueColor(e.hex);
+    dispatch(ColorAdd(e.hex));
   };
 
   const handleClickBtn = () => {
-    if (colors.length >= 8) {
-      dispatch(hideColorPicker());
-    } else {
-      dispatch(ColorAdd(valueColor));
-    }
+    dispatch(showColorPicker());
   };
 
   const deleteBlock = (id: number) => {
-    if (colors.length <= 8) {
-      dispatch(showColorPicker());
-    }
+    console.log(id);
+
     dispatch(ColorRemove(id));
   };
 

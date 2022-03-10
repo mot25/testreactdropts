@@ -1,12 +1,10 @@
 import { Dispatch } from "redux";
-import { useTypedSelector } from "../../component/hook/useTypedSelecror";
 import { ColorActionType } from "../types";
-
-
 
 export const ColorAdd = (color: string) => {
   return async (dispatch: Dispatch) => {
     dispatch({ type: ColorActionType.ADD_COLOR, payload: color });
+    dispatch({ type: ColorActionType.DELETE_COLORPICKER });
   };
 };
 
