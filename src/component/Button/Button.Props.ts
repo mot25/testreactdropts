@@ -5,5 +5,9 @@ export interface ButtonProps
     HTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
+  onClick?:
+    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+    | undefined;
   children: React.ReactNode;
 }
+
