@@ -100,6 +100,7 @@ const Form: FC = () => {
          <img src={uploadFiel} />
           </label>
           <input
+          accept="image/png, image/gif, image/jpeg"
             value={image}
             onChange={e => setImage(e.target.value)}
             className={styles.inputFile}
