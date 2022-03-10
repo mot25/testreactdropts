@@ -55,3 +55,36 @@ form {
 .submit_btn {
   margin-top: 48px;
 }
+
+.inputFile {
+  /* display: none; */
+}
+
+.uploadLabel {
+  width: 122px;
+  height: 86px;
+  background: var(--gray);
+  border-radius: 10px;
+  position: relative;
+}
+
+.uploadLabel > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Можно было скрыть через display: none; and visibility: hidden;, но тогда инпут потеряет фокус, а для некоторых доступность одно из главных характеристик на сайте  */
+.upload_container {
+  position: relative;
+  z-index: 10;
+}
+
+.upload_container input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  position: absolute;
+  z-index: -10;
+}
+

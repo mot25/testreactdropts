@@ -1,7 +1,10 @@
-import React, { FC, RefObject, useRef, useState } from "react";
+import React, {  FC,  RefObject, useRef, useState } from "react";
 import styles from "./Form.module.css";
 import cn from "classnames";
 import Button from "../../component/Button/Button";
+import uploadFiel from "./img/file_udload.svg"
+
+
 interface IData {
   action: string;
   id: number;
@@ -55,6 +58,7 @@ const Form: FC = () => {
     }
   };
 
+  
   return (
     <div className={styles.form}>
       <form action="send_data">
@@ -97,14 +101,18 @@ const Form: FC = () => {
             placeholder="Валерьянович"
           />
         </div>
-        <div className={styles.form_item}>
-          <label className={styles.label} htmlFor="photo">
+        <div className={cn(styles.form_item, styles.upload_container) }>
+        <label className={styles.label} htmlFor="photo">
             Фото
+          </label>
+          <label 
+          className={styles.uploadLabel} htmlFor="photo">
+         <img src={uploadFiel} />
           </label>
           <input
             value={image}
             onChange={e => setImage(e.target.value)}
-            className={styles.input}
+            className={styles.inputFile}
             id="photo"
             type="file"
             placeholder="Валерьянович"
