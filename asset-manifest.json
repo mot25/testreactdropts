@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/testreactdropts/static/css/main.c98cf8a9.css",
+    "main.js": "/testreactdropts/static/js/main.f2137772.js",
+    "static/media/file_udload.svg": "/testreactdropts/static/media/file_udload.adaec920925227754ec1b1549a9c9535.svg",
+    "static/media/delete_block.svg": "/testreactdropts/static/media/delete_block.f8c2dd582a0004c10d46c5a2b7fa5fd6.svg",
+    "index.html": "/testreactdropts/index.html",
+    "main.c98cf8a9.css.map": "/testreactdropts/static/css/main.c98cf8a9.css.map",
+    "main.f2137772.js.map": "/testreactdropts/static/js/main.f2137772.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c98cf8a9.css",
+    "static/js/main.f2137772.js"
+  ]
+}
