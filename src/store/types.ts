@@ -1,5 +1,5 @@
 export interface IColorChange {
-  colors: string[];
+  colors: any[];
   changeColor: string | null;
   isColorPicker: boolean;
 }
