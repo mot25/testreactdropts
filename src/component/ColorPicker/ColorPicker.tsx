@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BlockPicker } from "react-color";
 import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
@@ -52,25 +52,32 @@ const ColorPicker = () => {
   };
 
   const deleteBlock = (id: number) => {
-    console.log(id);
-
     dispatch(ColorRemove(id));
   };
 
-  window.addEventListener("click", (e: any) => {
-    // console.dir(e.target);
-    const target = e.target;
-    console.log(target.closest(".BlockPicker"));
+  const hidePicker = (e: any) => {
+    if (
+      e.target.closest(".BlockPicker") === null &&
+      e.target.closest("#button_color") === null &&
+      isColorPicker
+    ) {
+      return dispatch(hideColorPicker());
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", hidePicker);
+    return () => window.removeEventListener("click", hidePicker);
   });
 
   return (
     <div>
       <div className={styles.block_container}>
         {colors &&
-          colors.map((color: IColorWithMap): JSX.Element => {
+          colors.map((color: IColorWithMap, i: number): JSX.Element => {
             return (
               <div
-                key={color.id}
+                key={color.id + i}
                 className={styles.block_item}
                 style={{ backgroundColor: color.color }}
               >
@@ -85,7 +92,11 @@ const ColorPicker = () => {
           })}
       </div>
       <div className={styles.btn_wrapper}>
-        <Button onClick={handleClickBtn} className={styles.button_color}>
+        <Button
+          onClick={handleClickBtn}
+          id="button_color"
+          className={styles.button_color}
+        >
           Добавить цвет
         </Button>
         {isColorPicker &&
